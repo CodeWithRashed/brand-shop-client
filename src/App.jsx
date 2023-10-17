@@ -1,11 +1,15 @@
-function App() {
+import { RouterProvider } from "react-router-dom";
+import { router } from "./Router/Router";
+import DataContext from "./ContextApi/DataContext";
 
+function App() {
   return (
     <>
-    <h1 className="text-red-300">Hello React Tailwind</h1>
-      Hello React
+      <DataContext>
+        <RouterProvider router={router}></RouterProvider>
+      </DataContext>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
