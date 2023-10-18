@@ -1,6 +1,7 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
+import logo from '../../assets/logo.png'
 const Navbar = () => {
   const mobileNav = (
     <div>
@@ -17,7 +18,7 @@ const Navbar = () => {
         </li>
 
         <li><NavLink
-          to="/Product"
+          to="/products"
           className={({ isActive }) =>
             isActive ? "border-b-2 border-red-200" : ""
           }
@@ -67,7 +68,7 @@ const Navbar = () => {
         </li>
 
         <li><NavLink
-          to="/Product"
+          to="/products"
           className={({ isActive }) =>
             isActive ? "border-b-2 border-red-200" : ""
           }
@@ -108,7 +109,8 @@ const Navbar = () => {
     <div>
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl">Brand-Shop</a>
+         <Link>
+         <img className="w-4/5 lg:w-3/4" src={logo} alt="logo" /></Link>
         </div>
 
         {/* Desktop Navbar Start */}
