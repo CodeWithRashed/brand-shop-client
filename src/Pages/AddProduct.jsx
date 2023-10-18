@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const AddProduct = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -32,8 +34,17 @@ const AddProduct = () => {
       if (response.ok) {
         const result = await response.json();
         console.log(result);
-        form.reset()
-        alert("product Added");
+        form.reset();
+        toast.success("Product Added!", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
     } catch (error) {
       console.log(error);
@@ -50,6 +61,7 @@ const AddProduct = () => {
           <div className="flex flex-col w-[48%]">
             <span>Product Name</span>
             <input
+              required
               className="border-2 border-red-200 w-full rounded-lg p-1"
               type="text"
               name="productName"
@@ -59,6 +71,7 @@ const AddProduct = () => {
           <div className="flex flex-col w-[48%]">
             <span>Product Image</span>
             <input
+              required
               className="border-2 border-red-200 w-full rounded-lg p-1"
               type="text"
               name="productImage"
@@ -69,6 +82,7 @@ const AddProduct = () => {
             <span>Brand Name</span>
             <select
               name="brandName"
+              required
               className="select text-xl border-2 border-red-200"
             >
               <option defaultValue>Choose Product Brand</option>
@@ -85,6 +99,7 @@ const AddProduct = () => {
           <div className="flex flex-col w-[48%]">
             <span>Product Type</span>
             <select
+              required
               name="productType"
               className="select text-xl border-2 border-red-200"
             >
@@ -102,6 +117,7 @@ const AddProduct = () => {
           <div className="flex flex-col w-[48%]">
             <span>Product Price</span>
             <input
+              required
               className="border-2 border-red-200 w-full rounded-lg p-1"
               type="text"
               name="productPrice"
@@ -114,6 +130,7 @@ const AddProduct = () => {
 
             <select
               name="productRatting"
+              required
               className="select text-xl border-2 border-red-200  "
             >
               <option defaultValue>Product Rating</option>
@@ -128,6 +145,7 @@ const AddProduct = () => {
           <div className="flex flex-col w-full">
             <span>Product Description</span>
             <textarea
+              required
               className="w-full h-[100px] border-2 border-red-200"
               type="text"
               name="productDescription"

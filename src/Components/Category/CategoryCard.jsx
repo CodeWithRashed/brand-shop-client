@@ -13,7 +13,7 @@ const CategoryCard = ({image, title}) => {
   )
 }
 CategoryCard.propTypes = {
-    image: PropTypes.sting,
-    title: PropTypes.sting
+    image: PropTypes.string,
+    title: PropTypes.string
 }
 export default CategoryCard

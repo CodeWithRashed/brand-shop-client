@@ -5,7 +5,7 @@ import 'swiper/css/navigation';
 import { Navigation, Autoplay } from 'swiper/modules';
 const ItemsContainer = () => {
   return (
-    <div className="my-[5%]">
+    <div className="my-[8%]">
       <Swiper
         slidesPerView={"auto"}
         spaceBetween={30}
