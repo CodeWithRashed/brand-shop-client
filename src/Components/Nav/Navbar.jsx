@@ -1,23 +1,106 @@
+import { NavLink } from "react-router-dom";
+import { FaUserCircle } from "react-icons/fa";
+import { FiMenu } from "react-icons/fi";
 const Navbar = () => {
   const mobileNav = (
     <div>
-      <ul >
-        <li>Home</li>
-        <li>Products</li>
-        <li>Add To Card</li>
-        <li>Add Product</li>
-        <li>Login</li>
+      <ul className="flex flex-col gap-4 menu dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+      <li>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? "border-b-2 border-red-200" : ""
+            }
+          >
+            Home
+          </NavLink>
+        </li>
+
+        <li><NavLink
+          to="/Product"
+          className={({ isActive }) =>
+            isActive ? "border-b-2 border-red-200" : ""
+          }
+        >
+          Product
+        </NavLink></li>
+        <li> <NavLink
+          to="/cart"
+          className={({ isActive }) =>
+            isActive ? "border-b-2 border-red-200" : ""
+          }
+        >
+          Cart
+        </NavLink></li>
+        <li> <NavLink
+          to="/login"
+          className={({ isActive }) =>
+            isActive ? "border-b-2 border-red-200" : ""
+          }
+        >
+          Login
+        </NavLink></li>
+        <li> <NavLink
+          to="/add"
+          className={({ isActive }) =>
+            isActive ? "border-b-2 border-red-200" : ""
+          }
+        >
+          Add Product
+        </NavLink></li>
+       
       </ul>
     </div>
   );
   const desktopNav = (
-    <div className="hidden lg:block">
-      <ul className="flex gap-10 mr-5">
-        <li>Home</li>
-        <li>Products</li>
-        <li>Add To Card</li>
-        <li>Add Product</li>
-        <li>Login</li>
+    <div className="hidden lg:block menu menu-horizontal bg-base-100">
+      <ul className="menu menu-horizontal flex gap-10 mr-5">
+        <li>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? "border-b-2 border-red-200" : ""
+            }
+          >
+            Home
+          </NavLink>
+        </li>
+
+        <li><NavLink
+          to="/Product"
+          className={({ isActive }) =>
+            isActive ? "border-b-2 border-red-200" : ""
+          }
+        >
+          Product
+        </NavLink></li>
+        <li> <NavLink
+          to="/cart"
+          className={({ isActive }) =>
+            isActive ? "border-b-2 border-red-200" : ""
+          }
+        >
+          Cart
+        </NavLink></li>
+        <li> <NavLink
+          to="/login"
+          className={({ isActive }) =>
+            isActive ? "border-b-2 border-red-200" : ""
+          }
+        >
+          Login
+        </NavLink></li>
+        <li> <NavLink
+          to="/add"
+          className={({ isActive }) =>
+            isActive ? "border-b-2 border-red-200" : ""
+          }
+        >
+          Add Product
+        </NavLink></li>
+        
+
+       
       </ul>
     </div>
   );
@@ -36,26 +119,12 @@ const Navbar = () => {
           <div className="dropdown dropdown-end lg:hidden">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
               <div className="indicator">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
-                <span className="badge badge-sm indicator-item">8</span>
+                <FiMenu className="text-3xl"></FiMenu>
               </div>
             </label>
             <div
               tabIndex={0}
-              className="mt-3  z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
+              className="mt-3  z-[10] card card-compact dropdown-content w-52 bg-base-100 shadow"
             >
               {/* Mobile Navbar Start */}
               <div>{mobileNav}</div>
@@ -65,7 +134,7 @@ const Navbar = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                <FaUserCircle className="h-full w-full"></FaUserCircle>
               </div>
             </label>
             <ul
@@ -73,14 +142,9 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
+                <a className="justify-between">Profile</a>
               </li>
-              <li>
-                <a>Settings</a>
-              </li>
+
               <li>
                 <a>Logout</a>
               </li>

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useContext } from "react";
-import { GlobalDataContext } from "../ContextApi/DataContext";
+import { GlobalDataContext } from "../../ContextApi/DataContext";
 const Register = ({ setPageToggle }) => {
   const { createEmailUser, googleLogin } = useContext(GlobalDataContext);
   //Email And Password Registration
