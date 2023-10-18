@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import PropTypes from "prop-types";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 //Global Data Sending Context
 export const GlobalDataContext = createContext(null);
 
@@ -14,8 +14,9 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 
 //Data Context Components
 const DataContext = ({ children }) => {
+  //States
 const [activeUser, setActiveUser] = useState(null)
-
+const [userPhoto, setUserPhoto] = useState(null)
 
 
   //Create User Email & Pass Func
@@ -32,14 +33,28 @@ const [activeUser, setActiveUser] = useState(null)
     return signInWithEmailAndPassword(auth, email, password)
   }
 
-//User Watch
+//Update User Info Image, Name etc..
+const userInfoUpdate = (name, imageUrl) => {
+  updateProfile(auth.currentUser, {
+    displayName: name, photoURL: imageUrl
+  })
+}
+
+
+  //Logout User
+  const userLogout = () =>{
+    signOut(auth)
+  }
+
+
+//Watch User
  onAuthStateChanged(auth, (user)=>{
   console.log(user)
 setActiveUser(user)
 })
 
   //Global Data Export
-  const globalDataVariable = { createEmailUser, googleLogin, loginWithEmail};
+  const globalDataVariable = { createEmailUser, googleLogin, loginWithEmail, activeUser, userLogout, userInfoUpdate, setUserPhoto, userPhoto};
   return (
     <GlobalDataContext.Provider value={globalDataVariable}>
       {children}

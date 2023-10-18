@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import { GlobalDataContext } from "../../ContextApi/DataContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 const Login = ({ setPageToggle }) => {
   const { googleLogin, loginWithEmail } = useContext(GlobalDataContext);
+  const [loginError, setLoginError] = useState(null);
   const navigator = useNavigate();
   const handleLoginSubmit = async (event) => {
     event.preventDefault();
@@ -14,22 +15,27 @@ const Login = ({ setPageToggle }) => {
     const password = form.password.value;
 
     loginWithEmail(email, password)
-    .then(() => {
-      toast.success("Login Successful, Redirecting", {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
+      .then(() => {
+        toast.success("Login Successful, Redirecting", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setLoginError(null)
+        setTimeout(() => {
+          navigator("/");
+        }, "2000");
+      })
+      .catch((error) => {
+        if (error) {
+          setLoginError("Invalid login credentials");
+        }
       });
-      setTimeout(() => {
-        navigator("/");
-      }, "2000");
-    })
-      .then();
   };
 
   //Google Login
@@ -50,7 +56,7 @@ const Login = ({ setPageToggle }) => {
           navigator("/");
         }, "2000");
       })
-      .then((error) => console.log(error));
+      .then();
   };
 
   return (
@@ -94,10 +100,11 @@ const Login = ({ setPageToggle }) => {
               Login
             </button>
           </form>
+          {loginError ? <p className="text-center text-red-500 my-2">{loginError}</p> : ""}
           <div className="cta mt-4 text-center">
-            New Here?
+            <span className="mr-3">New Here?</span>
             <button
-              className="text-blue-500"
+              className="text-blue-500 "
               onClick={() => {
                 setPageToggle(true);
               }}

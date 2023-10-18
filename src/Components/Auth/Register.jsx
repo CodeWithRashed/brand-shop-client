@@ -1,11 +1,16 @@
 import PropTypes from "prop-types";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { GlobalDataContext } from "../../ContextApi/DataContext";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 const Register = ({ setPageToggle }) => {
-  const { createEmailUser, googleLogin } = useContext(GlobalDataContext);
+  const { createEmailUser, googleLogin, userInfoUpdate, setUserPhoto } =
+    useContext(GlobalDataContext);
+  const passwordRegex =
+  /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!])(?=.*[a-zA-Z\d@#$%^&+=!]).{8,}$/;
+  const [passError, setPassError] = useState(null);
+
   const navigator = useNavigate();
   //Handle Submit Info
   const handleSubmit = async (event) => {
@@ -21,7 +26,7 @@ const Register = ({ setPageToggle }) => {
     //Send User Data to Database
     try {
       const response = await fetch(
-        "https://brand-shop-back-end.vercel.app/api/addUser",
+        "http://localhost:3000/api/addUser",
         {
           method: "POST",
           headers: {
@@ -32,8 +37,19 @@ const Register = ({ setPageToggle }) => {
       );
 
       if (response.ok) {
-        await response.json();
+        const isValidPassword = passwordRegex.test(password);
+        //Password Error Message
+        if (!isValidPassword) {
+          const invalidMessage = 
+            "Password must be at least 8 characters long and include at least one lowercase letter, one uppercase letter, and one digit.";
+          setPassError(invalidMessage);
 
+          return;
+        }
+        await response.json()
+        setPassError(null);
+        setUserPhoto(imageUrl);
+        userInfoUpdate(name, imageUrl);
         // Email And Password Registration
         await createEmailUser(email, password);
 
@@ -144,8 +160,9 @@ const Register = ({ setPageToggle }) => {
             Register
           </button>
         </form>
+        {passError ? <p className="text-center text-red-500 my-2">{passError}</p> : ""}
         <div className="cta mt-4 text-center">
-          Already Have an Account?
+         <span className="mr-3"> Already Have an Account?</span>
           <button
             className="text-blue-500"
             onClick={() => {
