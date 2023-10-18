@@ -3,6 +3,7 @@ import MainLayout from "../Layout/MainLayout";
 import HomePage from "../Pages/HomePage";
 import AuthPage from "../Pages/AuthPage";
 import Error404 from '../Pages/Error404';
+import AddProduct from "../Pages/AddProduct";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -19,7 +20,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/add",
-        element: <AuthPage></AuthPage>,
+        element: <AddProduct></AddProduct>,
       },
       {
         path: "/cart",

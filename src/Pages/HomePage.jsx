@@ -1,8 +1,14 @@
+import Banner from "../Components/Banner/Banner"
+import ItemsContainer from "../Components/CarITems/ItemsContainer"
+import CategoryContainer from "../Components/Category/CategoryContainer"
+
 const HomePage = () => {
    
   return (
-    <div>
-      THis is homepage
+    <div >
+     <Banner></Banner>
+     <ItemsContainer></ItemsContainer>
+     <CategoryContainer></CategoryContainer>
     </div>
   )
 }
