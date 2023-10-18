@@ -4,6 +4,8 @@ import HomePage from "../Pages/HomePage";
 import AuthPage from "../Pages/AuthPage";
 import Error404 from '../Pages/Error404';
 import AddProduct from "../Pages/AddProduct";
+import ProductDetail from "../Pages/ProductDetail";
+import BrandDetails from "../Pages/BrandDetails";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -17,6 +19,14 @@ export const router = createBrowserRouter([
       {
         path: "/products",
         element: <AuthPage></AuthPage>,
+      },
+      {
+        path: "/products/:id",
+        element: <ProductDetail></ProductDetail>,
+      },
+      {
+        path: "/products/brand/:brand",
+        element: <BrandDetails></BrandDetails>,
       },
       {
         path: "/add",
