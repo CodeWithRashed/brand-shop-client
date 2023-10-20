@@ -1,3 +1,4 @@
+import AccessoriesSection from "../Components/AccessoriesSection/AccessoriesSection"
 import Banner from "../Components/Banner/Banner"
 import ItemsContainer from "../Components/CarITems/ItemsContainer"
 import CategoryContainer from "../Components/Category/CategoryContainer"
@@ -11,6 +12,7 @@ const HomePage = () => {
      <ItemsContainer></ItemsContainer>
      <CategoryContainer></CategoryContainer>
      <ProductSection></ProductSection>
+     <AccessoriesSection></AccessoriesSection>
     </div>
   )
 }

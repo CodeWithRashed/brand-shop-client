@@ -1,5 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 import SectionTitle from "../Components/SectionTitle/SectionTitle";
+import Rating from 'react-rating';
 
 import { useEffect, useState } from "react";
 import { fetchProductData } from "../Hooks/fetchData";
@@ -23,7 +24,7 @@ const ProductDetail = () => {
   }, [product]);
 
 const handleAddCart = async (id) =>{
- await fetch("http://localhost:3000/api/addCartItem", {
+ await fetch("https://brand-shop-back-end.vercel.app/api/addCartItem", {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -56,7 +57,7 @@ const handleAddCart = async (id) =>{
           <div className="space-y-3">
             <h1 className="text-4xl">{product.productName}</h1>
             <div className="review flex gap-5 text-xl">
-              <p> 1 Review</p>| <p>{product.productRatting}</p>|
+              <p> 1 Review</p>|<Rating /> <p>{product.productRatting}</p>|
               <p>Add Your Review</p>
             </div>
             <h1 className="text-3xl my-3 text-[#ff2d37]">

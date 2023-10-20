@@ -40,7 +40,7 @@ const ProductPage = () => {
       </div>
       <div>
       <div className="grid grid-cols-3 gap-5 my-[5%]">
-        {productData.map((product) => (
+        {productData?.map((product) => (
           <div key={product._id}>
             <Link to={`/products/${product._id}`}>
               <div className=" relative rounded-xl overflow-hidden group">

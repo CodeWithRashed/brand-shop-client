@@ -32,15 +32,12 @@ const Banner = () => {
               backgroundSize: "cover",
             }}
           >
-            <div className="text-content relative z-10 my-20 space-y-5">
-              <h3 className="text-2xl lg:text-5xl font-pacifico text-[#FFFFFF]">
-                Let&apos; have a party!
-              </h3>
-              <h1 className="drop-shadow-xl text-4xl lg:text-9xl font-rubik text-color-primary font-bold">
-                It&apos; time to <br />
-                celebrate!
+            <div className="flex justify-center items-center text-content relative z-10 space-y-5 bg-[#000000]/[.40] h-full w-full top-0">
+             
+              <h1 className="drop-shadow-xl text-xl lg:text-7xl font-rubik text-[#fff] font-bold">
+              Experience the Thrill
               </h1>
-              <div className="cta"></div>
+     
             </div>
           </div>
           {/* Slider 1 End */}
@@ -57,16 +54,13 @@ const Banner = () => {
               backgroundSize: "cover",
             }}
           >
-            <div className="text-content relative z-10 my-20 space-y-5">
-              <h3 className="text-2xl lg:text-5xl font-pacifico text-[#FFFFFF]">
-                We are here for you!
-              </h3>
-              <h1 className="drop-shadow-xl text-4xl lg:text-9xl font-rubik text-color-primary font-bold">
-                Concept to <br />
-                Celebration.
-              </h1>
-              <div className="cta"></div>
-            </div>
+            <div className="flex justify-center items-center text-content relative z-10 space-y-5 bg-[#000000]/[.40] h-full w-full top-0">
+             
+             <h1 className="drop-shadow-xl text-xl lg:text-7xl font-rubik text-[#fff] font-bold">
+             Cars that Define You
+             </h1>
+    
+           </div>
           </div>
           {/* Slider 2 End */}
         </SwiperSlide>
@@ -83,16 +77,13 @@ const Banner = () => {
             }}
           >
             {/* Your Event, Our Expertise. */}
-            <div className="text-content relative z-10 my-20 space-y-5">
-              <h3 className="text-2xl lg:text-5xl font-pacifico text-[#FFFFFF]">
-                Elegance in Every Event
-              </h3>
-              <h1 className="drop-shadow-xl text-4xl lg:text-9xl font-rubik text-color-primary font-bold">
-                Enjoy your <br />
-                celebration!
-              </h1>
-              <div className="cta"></div>
-            </div>
+            <div className="flex justify-center items-center text-content relative z-10 space-y-5 bg-[#000000]/[.40] h-full w-full top-0">
+             
+             <h1 className="drop-shadow-xl text-xl lg:text-7xl font-rubik text-[#fff] font-bold">
+             Where Your Dream Car Awaits
+             </h1>
+    
+           </div>
           </div>
           {/* Slider 3 End */}
         </SwiperSlide>

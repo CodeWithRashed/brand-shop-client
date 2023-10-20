@@ -1,17 +1,18 @@
-import { Outlet } from "react-router-dom"
-import Navbar from "../Components/Nav/Navbar"
-import Footer from "../Components/Footer/Footer"
-
+import { Outlet } from "react-router-dom";
+import Navbar from "../Components/Nav/Navbar";
+import Footer from "../Components/Footer/Footer";
 
 const MainLayout = () => {
   return (
     <div>
-      <Navbar></Navbar>
-      <Outlet></Outlet>
-     <Footer></Footer>
-      
-    </div>
-  )
-}
+      <div className="font-rubik mx-[5%]">
+        <Navbar></Navbar>
+        <Outlet></Outlet>
+      </div>
 
-export default MainLayout
+      <Footer></Footer>
+    </div>
+  );
+};
+
+export default MainLayout;

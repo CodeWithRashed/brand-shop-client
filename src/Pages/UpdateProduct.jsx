@@ -26,7 +26,7 @@ const UpdateProduct = () => {
     console.log(productData);
 
     try {
-      const response = await fetch(`http://localhost:3000/api/update/${product._id}`, {
+      const response = await fetch(`https://brand-shop-back-end.vercel.app/api/update/${product._id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

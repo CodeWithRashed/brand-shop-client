@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { fetchProductData } from "../Hooks/fetchData";
 import { useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -7,35 +7,23 @@ const CartPage = () => {
   const [addData, setAllData] = useState(null);
   const cartItems = useLoaderData();
 
-  const fetchData = async () => {
-    try {
+  useEffect(() => {
+    const fetchData = async () => {
       const data = await fetchProductData();
-      // Filter the data to only include products that match cartItems' ids
       const filteredData = data.filter((singleData) =>
         cartItems?.some((item) => item.id === singleData._id)
       );
       setAllData(filteredData);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
-  // Create a ref for the fetchData function
-  const fetchFuncRef = useRef(fetchData);
-
-  useEffect(() => {
-    // Call the fetchData function using the ref
-    fetchFuncRef.current();
+    };
+    fetchData();
   }, [cartItems]);
 
   const handleDelete = async (id) => {
-    await fetch(`http://localhost:3000/api/delete/${id}`, {
+    await fetch(`https://brand-shop-back-end.vercel.app/api/delete/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
-        // Call the fetchData function using the ref
-        fetchFuncRef.current();
         toast.success("Removed from Cart!!", {
           position: "top-center",
           autoClose: 2000,
@@ -50,10 +38,9 @@ const CartPage = () => {
       });
   };
 
-
   return (
     <div>
-      <div className="cart-container grid grid-cols-3 gap-8 my-[5%]">
+      <div className="cart-container grid lg:grid-cols-3 gap-8 my-[5%]">
         <div className="cart-content col-span-2">
           <div className="flex justify-between border-b pb-8">
             <h1 className="font-semibold text-2xl">Shopping Cart</h1>
