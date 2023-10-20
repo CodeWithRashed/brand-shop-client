@@ -36,7 +36,11 @@ const BrandDetails = () => {
                     </h1>
                   </div>
                   <div className="img ">
-                    <img className="w-[400px] h-[200px]" src={`${product?.productImage}`} alt="" />
+                    <img
+                      className="w-[400px] h-[200px]"
+                      src={`${product?.productImage}`}
+                      alt=""
+                    />
                   </div>
                   <div className="content p-3">
                     <h1 className="text-2xl uppercase">
@@ -57,7 +61,10 @@ const BrandDetails = () => {
                       >
                         <button>Details</button>
                       </Link>
-                      <Link className="px-3 !w-[45%] py-2 bg-[#ff2d37] rounded-xl text-white text-center">
+                      <Link
+                        to={`/api/update/${product._id}`}
+                        className="px-3 !w-[45%] py-2 bg-[#ff2d37] rounded-xl text-white text-center"
+                      >
                         <button>Update</button>
                       </Link>
                     </div>

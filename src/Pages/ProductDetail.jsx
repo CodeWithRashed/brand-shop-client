@@ -3,6 +3,7 @@ import SectionTitle from "../Components/SectionTitle/SectionTitle";
 
 import { useEffect, useState } from "react";
 import { fetchProductData } from "../Hooks/fetchData";
+import { toast } from "react-toastify";
 
 const ProductDetail = () => {
   const product = useLoaderData();
@@ -21,6 +22,29 @@ const ProductDetail = () => {
       });
   }, [product]);
 
+const handleAddCart = async (id) =>{
+ await fetch("http://localhost:3000/api/addCartItem", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({id}),
+  })
+  .then(data => {
+    toast.success("Added to Cart", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    })
+    console.log(data)})
+}
+
+
   return (
     <div>
       <div className="grid grid-cols-2 gap-10">
@@ -36,13 +60,14 @@ const ProductDetail = () => {
               <p>Add Your Review</p>
             </div>
             <h1 className="text-3xl my-3 text-[#ff2d37]">
-              {" "}
-              <span className="text-[#282828]">Price: </span>
+                <span className="text-[#282828]">Price: </span>
               <span className="text-4xl"> {product.productPrice}</span>$
             </h1>
           </div>
           <div>
-            <button className="w-full bg-[#ff2d37] text-white font-bold py-1 rounded-xl">
+            <button onClick={()=>{
+              handleAddCart(product._id)
+            }} className="w-full bg-[#ff2d37] text-white font-bold py-1 rounded-xl">
               Add to Cart
             </button>
           </div>
