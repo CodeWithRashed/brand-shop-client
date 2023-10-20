@@ -17,9 +17,7 @@ const Footer = () => {
             Cart
           </Link>
 
-          <Link to="/login" className="hover:text-[#ff2d37]">
-            Login
-          </Link>
+        
 
           <Link to="/add" className="hover:text-[#ff2d37]">
             Add Product

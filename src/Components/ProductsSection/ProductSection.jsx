@@ -21,7 +21,7 @@ const ProductSection = () => {
         subtitle="TOP NEW ON THIS WEEK"
         title="NEW ARRIVALS"
       ></SectionTitle>
-      <div className="grid grid-cols-3 gap-5 ">
+      <div className="grid lg:grid-cols-3 gap-5 ">
         {productData.map((product) => (
           <div key={product._id}>
             <Link to={`/products/${product._id}`}>

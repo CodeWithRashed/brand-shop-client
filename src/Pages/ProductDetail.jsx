@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 import SectionTitle from "../Components/SectionTitle/SectionTitle";
-import Rating from 'react-rating';
+import Rating from "react-rating";
 
 import { useEffect, useState } from "react";
 import { fetchProductData } from "../Hooks/fetchData";
@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 const ProductDetail = () => {
   const product = useLoaderData();
   const [productData, setProductData] = useState([]);
+  const [rating, setRatting] = useState([]);
   useEffect(() => {
     fetchProductData()
       .then((data) => {
@@ -23,28 +24,27 @@ const ProductDetail = () => {
       });
   }, [product]);
 
-const handleAddCart = async (id) =>{
- await fetch("https://brand-shop-back-end.vercel.app/api/addCartItem", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify({id}),
-  })
-  .then(data => {
-    toast.success("Added to Cart", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    })
-    console.log(data)})
-}
-
+  const handleAddCart = async (id) => {
+    await fetch("https://brand-shop-back-end.vercel.app/api/addCartItem", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ id }),
+    }).then((data) => {
+      toast.success("Added to Cart", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      console.log(data);
+    });
+  };
 
   return (
     <div>
@@ -57,18 +57,26 @@ const handleAddCart = async (id) =>{
           <div className="space-y-3">
             <h1 className="text-4xl">{product.productName}</h1>
             <div className="review flex gap-5 text-xl">
-              <p> 1 Review</p>|<Rating /> <p>{product.productRatting}</p>|
-              <p>Add Your Review</p>
+              <p> 1 Review</p>|
+              <Rating
+                emptySymbol="fa fa-star-o fa-2x"
+                fullSymbol="fa fa-star fa-2x"
+                initialRating={product.productRatting}
+              />
+              <p></p>|<p>Add Your Review</p>
             </div>
             <h1 className="text-3xl my-3 text-[#ff2d37]">
-                <span className="text-[#282828]">Price: </span>
+              <span className="text-[#282828]">Price: </span>
               <span className="text-4xl"> {product.productPrice}</span>$
             </h1>
           </div>
           <div>
-            <button onClick={()=>{
-              handleAddCart(product._id)
-            }} className="w-full bg-[#ff2d37] text-white font-bold py-1 rounded-xl">
+            <button
+              onClick={() => {
+                handleAddCart(product._id);
+              }}
+              className="w-full bg-[#ff2d37] text-white font-bold py-1 rounded-xl"
+            >
               Add to Cart
             </button>
           </div>
@@ -88,7 +96,10 @@ const handleAddCart = async (id) =>{
       </div>
       <div>
         <div>
-          <SectionTitle title="RELATED PRODUCTS" subtitle="Product on Same Category"></SectionTitle>
+          <SectionTitle
+            title="RELATED PRODUCTS"
+            subtitle="Product on Same Category"
+          ></SectionTitle>
         </div>
         <div>
           <div className="grid grid-cols-3 gap-5 mb-20">

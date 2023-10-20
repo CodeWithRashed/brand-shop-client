@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchProductData } from "../Hooks/fetchData";
 import { useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
+import { AiFillDelete } from "react-icons/ai";
 
 const CartPage = () => {
   const [addData, setAllData] = useState(null);
@@ -40,51 +41,66 @@ const CartPage = () => {
 
   return (
     <div>
-      <div className="cart-container grid lg:grid-cols-3 gap-8 my-[5%]">
-        <div className="cart-content col-span-2">
-          <div className="flex justify-between border-b pb-8">
-            <h1 className="font-semibold text-2xl">Shopping Cart</h1>
-            <h2 className="font-semibold text-2xl">3 Items</h2>
+      <div className="cart-container grid lg:grid-cols-4 gap-8">
+        <div className="cart-content lg:col-span-3">
+          <div className="grid  border-b mb-3">
+            <h1 className="font-semibold col-span-2 text-2xl">Shopping Cart</h1>
+           
           </div>
-          <div className="grid grid-cols-4 mt-10 mb-5">
-            <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">
-              Product Image
-            </h3>
-            <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">
-              Product Name
-            </h3>
-            <h3 className="col-span-2 font-semibold text-gray-600 text-xs uppercase w-1/5 text-center">
-              Price
-            </h3>
-          </div>
-          {addData?.map((cartItem) => (
-            <div key={cartItem._id}>
-              <div className="grid grid-cols-4 gap-5 space-y-3 justify-start items-center">
-                <div className="my-2">
-                  <img
-                    className="h-20 w-20 rounded-xl"
-                    src={cartItem?.productImage}
-                    alt=""
-                  />
-                </div>
-                <div className="text-2xl">{cartItem?.productName}</div>
-                <div className="text-2xl">{cartItem?.productPrice}$</div>
-                <button
-                  onClick={() => handleDelete(cartItem._id)}
-                  className="text-2xl border-2 border-red-200 p-2"
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          ))}
+          <table className="table-auto w-full text-left">
+            <thead>
+              <tr>
+                <th className="font-semibold col-span-2 text-gray-600 text-xs uppercase">
+                  Product Image
+                </th>
+                <th className="font-semibold col-span-4 text-gray-600 text-xs uppercase">
+                  Product Name
+                </th>
+                <th className="col-span-2 font-semibold text-gray-600 text-xs uppercase ">
+                  Price
+                </th>
+                <th className="col-span-2 font-semibold text-gray-600 text-xs uppercase">
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+            
+              {addData?.map((cartItem) => (
+                <tr key={cartItem._id}>
+                  <td className="my-2">
+                    <img
+                      className="h-10 w-10 rounded-xl"
+                      src={cartItem?.productImage}
+                      alt=""
+                    />
+                  </td>
+                  <td className="text-xl ">
+                    {cartItem?.productName}
+                  </td>
+                  <td className="text-xl">{cartItem?.productPrice}$</td>
+                  <td>
+                    <button
+                      onClick={() => handleDelete(cartItem._id)}
+                      className="text-xl  p-2"
+                    >
+                      <AiFillDelete></AiFillDelete>
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
         <div className="order-summary">
-          <h1 className="font-semibold text-2xl border-b pb-8">
+          <div className=" mb-3">
+          <h1 className="font-semibold text-2xl border-b">
             Order Summary
           </h1>
-          <div className="flex justify-between mt-10 mb-5">
+          </div>
+          
+          <div className="flex justify-between">
             <span className="font-semibold text-sm uppercase">
               <span>Total Items:</span> 3
             </span>
@@ -92,13 +108,7 @@ const CartPage = () => {
               <span>SUB TOTAL: </span>590$
             </span>
           </div>
-          <div>
-            <label className="font-medium inline-block mb-3 text-sm uppercase">
-              Shipping
-            </label>
-
-            <p>Standard shipping - $10.00</p>
-          </div>
+          
           <div className="py-10">
             <label className="font-semibold inline-block mb-3 text-sm uppercase">
               Promo Code

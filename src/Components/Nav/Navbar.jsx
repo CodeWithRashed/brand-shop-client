@@ -10,7 +10,7 @@ const Navbar = () => {
 
   const mobileNav = (
     <div>
-      <ul className="flex flex-col gap-4 menu dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+      <ul className="flex flex-col gap-4 menu dropdown-content mt-3 z-[100] p-2 shadow bg-base-100 rounded-box w-52">
         <li>
           <NavLink
             to="/"
@@ -165,7 +165,7 @@ const Navbar = () => {
             </label>
             <div
               tabIndex={0}
-              className="mt-3  z-[10] card card-compact dropdown-content w-52 bg-base-100 shadow"
+              className="mt-3  z-[100] card card-compact dropdown-content w-52 bg-base-100 shadow"
             >
               {/* Mobile Navbar Start */}
               <div>{mobileNav}</div>
@@ -185,7 +185,7 @@ const Navbar = () => {
               </label>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-base-100 rounded-box w-52"
+                className="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
                   <a className="justify-between">Profile</a>
