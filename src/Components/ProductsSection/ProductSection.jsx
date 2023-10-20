@@ -28,7 +28,7 @@ const ProductSection = () => {
               <div className=" relative rounded-xl overflow-hidden group">
                 <div className="h-full w-full">
                   <img
-                    className="h-full w-full object-cover group-hover:scale-105 transition-all ease-in-out"
+                    className="h-[250px] w-full object-cover group-hover:scale-105 transition-all ease-in-out"
                     src={product?.productImage}
                     alt=""
                   />

@@ -24,7 +24,7 @@ const AddProduct = () => {
     console.log(productData);
 
     try {
-      const response = await fetch("http://localhost:3000/api/addProduct", {
+      const response = await fetch("https://brand-shop-back-end.vercel.app/api/addProduct", {
         method: "POST",
         headers: {
           "content-type": "application/json",

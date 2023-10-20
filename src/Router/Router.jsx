@@ -6,6 +6,8 @@ import Error404 from '../Pages/Error404';
 import AddProduct from "../Pages/AddProduct";
 import ProductDetail from "../Pages/ProductDetail";
 import BrandDetails from "../Pages/BrandDetails";
+import ProductPage from "../Pages/ProductPage";
+import PrivateRoute from '../Router/PrivateRoute'
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -18,11 +20,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "/products",
-        element: <AuthPage></AuthPage>,
+        element: <ProductPage></ProductPage>,
       },
       {
         path: "/products/:id",
-        element: <ProductDetail></ProductDetail>,
+        element: <PrivateRoute><ProductDetail></ProductDetail></PrivateRoute>,
+        loader: ({params})=> fetch(`https://brand-shop-back-end.vercel.app/api/getProduct/${params.id}`)
       },
       {
         path: "/products/brand/:brand",
@@ -30,11 +33,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/add",
-        element: <AddProduct></AddProduct>,
+        element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>,
       },
       {
         path: "/cart",
-        element: <AuthPage></AuthPage>,
+        element: <PrivateRoute><></></PrivateRoute>,
       },
       {
         path: "/login",

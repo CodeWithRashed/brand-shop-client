@@ -7,8 +7,8 @@ const CategoryContainer = () => {
   return (
     <div className="my-[8%] text-center flex justify-between flex-col">
       <SectionTItle subtitle="Among the Best" title="Category"></SectionTItle>
-      <div className=" flex flex-wrap gap-y-12 grid-cols-3 justify-between w-full">
-        <Link to={`/products/brand/${brandNames[3]}`}>
+      <div className="grid gap-x-16 gap-y-8 grid-cols-3 justify-between">
+        <Link  to={`/products/brand/${brandNames[3]}`}>
           <CategoryCard
             image="http://magento2.magentech.com/themes/sm_autostore/pub/media/wysiwyg/categories/cate-1.jpg"
             title="Mercedes-Benz"

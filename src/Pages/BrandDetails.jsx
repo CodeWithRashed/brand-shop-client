@@ -27,7 +27,7 @@ const BrandDetails = () => {
           <div className="grid grid-cols-3 gap-5 my-[8%]">
             {productData?.map((product) => (
               <div key={product._id}>
-                <div className="shadow-lg">
+                <div className="shadow-lg border border-[#ff2d37] rounded-xl">
                   <div className="p-3">
                     <h1 className="text-2xl">{product?.productName}</h1>
                     <h1 className="text-xl uppercase">
@@ -36,7 +36,7 @@ const BrandDetails = () => {
                     </h1>
                   </div>
                   <div className="img ">
-                    <img src={`${product?.productImage}`} alt="" />
+                    <img className="w-[400px] h-[200px]" src={`${product?.productImage}`} alt="" />
                   </div>
                   <div className="content p-3">
                     <h1 className="text-2xl uppercase">

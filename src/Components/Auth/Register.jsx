@@ -26,7 +26,7 @@ const Register = ({ setPageToggle }) => {
     //Send User Data to Database
     try {
       const response = await fetch(
-        "http://localhost:3000/api/addUser",
+        "https://brand-shop-back-end.vercel.app/api/addUser",
         {
           method: "POST",
           headers: {
