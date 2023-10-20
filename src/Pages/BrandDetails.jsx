@@ -24,7 +24,7 @@ const BrandDetails = () => {
       {productData.length > 1 ? (
         <div>
           <BrandBanner></BrandBanner>
-          <div className="grid grid-cols-3 gap-5 my-[8%]">
+          <div className="grid lg:grid-cols-3 gap-5 my-[8%]">
             {productData?.map((product) => (
               <div key={product._id}>
                 <div className="shadow-lg border border-[#ff2d37] rounded-xl">
@@ -48,7 +48,7 @@ const BrandDetails = () => {
                     </h1>
                     <h1 className="text-2xl uppercase">
                       <span>Price: </span>
-                      {product?.productPrice}
+                      {product?.productPrice}$
                     </h1>
                     <h1 className="text-2xl uppercase">
                       <span>Ratting: </span>

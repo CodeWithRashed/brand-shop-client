@@ -55,13 +55,13 @@ const UpdateProduct = () => {
   };
   return (
     <div className="py-[5%] text-2xl">
-      <div className="w-[80%] mx-auto shadow-lg rounded-t-xl border-x-2 border-t-2 border-red-200">
+      <div className="lg:w-[80%] mx-auto shadow-lg rounded-t-xl border-x-2 border-t-2 border-red-200">
         <h1 className="text-3xl py-3 text-center">Add Product</h1>
       </div>
-      <div className="w-[80%] mx-auto shadow-xl rounded-b-xl py-5 px-8 ">
-        <form onSubmit={handleSubmit} className="flex flex-wrap gap-[4%]">
+      <div className="lg:w-[80%] mx-auto shadow-xl  rounded-b-xl py-5 px-3 lg:px-8 ">
+        <form onSubmit={handleSubmit} className="flex space-y-3 flex-wrap gap-[4%]">
           {/* Product Name */}
-          <div className="flex flex-col w-[48%]">
+          <div className="flex flex-col w-full lg:w-[48%]">
             <span>Product Name</span>
             <input
             defaultValue={product.productName}
@@ -72,7 +72,7 @@ const UpdateProduct = () => {
             />
           </div>
           {/* Product Image */}
-          <div className="flex flex-col w-[48%]">
+          <div className="flex flex-col w-full lg:w-[48%]">
             <span>Product Image</span>
             <input
              defaultValue={product.productImage}
@@ -83,12 +83,12 @@ const UpdateProduct = () => {
             />
           </div>
           {/* Product Brand Name */}
-          <div className="flex flex-col  w-[48%]">
+          <div className="flex flex-col w-full  lg:w-[48%]">
             <span>Brand Name</span>
             <select
               name="brandName"
               required
-              className="select text-xl border-2 border-red-200"
+              className="select text-xl border-2 border-red-200 w-full"
             >
               <option defaultValue>{product.brandName}</option>
               <option value="toyota">Toyota</option>
@@ -101,12 +101,12 @@ const UpdateProduct = () => {
           </div>
 
           {/* Product  Type */}
-          <div className="flex flex-col w-[48%]">
+          <div className="flex flex-col w-full lg:w-[48%]">
             <span>Product Type</span>
             <select
               required
               name="productType"
-              className="select text-xl border-2 border-red-200"
+              className="select text-xl border-2 w-full border-red-200"
             >
             <option defaultValue>{product.productType}</option>
               <option value="suv">SUV</option>
@@ -119,7 +119,7 @@ const UpdateProduct = () => {
             </select>
           </div>
           {/* Product Price */}
-          <div className="flex flex-col w-[48%]">
+          <div className="flex flex-col w-full lg:w-[48%]">
             <span>Product Price</span>
             <input
               required
@@ -131,13 +131,13 @@ const UpdateProduct = () => {
           </div>
 
           {/* Product Ratting */}
-          <div className="flex flex-col w-[48%]">
+          <div className="flex w-full flex-col lg:w-[48%]">
             <span>Product Rating</span>
 
             <select
               name="productRatting"
               required
-              className="select text-xl border-2 border-red-200  "
+              className="select text-xl border-2 w-full border-red-200  "
             >
              <option defaultValue>{product.productRatting}</option>
               <option value="1">1 Star</option>
@@ -153,7 +153,7 @@ const UpdateProduct = () => {
             <textarea
              defaultValue={product.productDescription}
               required
-              className="w-full h-[100px] border-2 border-red-200"
+              className="w-full h-[100px] border-2 border-red-200 rounded-xl"
               type="text"
               name="productDescription"
             />

@@ -1,6 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import SectionTitle from "../Components/SectionTitle/SectionTitle";
 import Rating from "react-rating";
+import {AiFillStar, AiOutlineStar} from "react-icons/ai";
 
 import { useEffect, useState } from "react";
 import { fetchProductData } from "../Hooks/fetchData";
@@ -9,7 +10,7 @@ import { toast } from "react-toastify";
 const ProductDetail = () => {
   const product = useLoaderData();
   const [productData, setProductData] = useState([]);
-  const [rating, setRatting] = useState([]);
+  // const [rating, setRatting] = useState([]);
   useEffect(() => {
     fetchProductData()
       .then((data) => {
@@ -48,22 +49,24 @@ const ProductDetail = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-2 gap-10">
+      <div className="grid lg:grid-cols-2 gap-10">
         <div>
           <img src={product.productImage} alt="" />
         </div>
         <div className="content space-y-3">
           <p>Product Details</p>
-          <div className="space-y-3">
+          <div className="space-y-3 flex flex-col ">
             <h1 className="text-4xl">{product.productName}</h1>
-            <div className="review flex gap-5 text-xl">
-              <p> 1 Review</p>|
+            <div className="review   flex flex-col lg:flex-row gap-5 text-xl">
+              <p> 1 Review</p>
               <Rating
-                emptySymbol="fa fa-star-o fa-2x"
-                fullSymbol="fa fa-star fa-2x"
-                initialRating={product.productRatting}
+               emptySymbol={<AiOutlineStar className="text-[#ff2d37]"></AiOutlineStar>}
+               fullSymbol={<AiFillStar className="text-[#ff2d37]"></AiFillStar>}
+              readonly={true}
+               
+                initialRating={4}
               />
-              <p></p>|<p>Add Your Review</p>
+              <p className="hover:text-[#ff2d37]">Add Your Review</p>
             </div>
             <h1 className="text-3xl my-3 text-[#ff2d37]">
               <span className="text-[#282828]">Price: </span>
@@ -75,15 +78,22 @@ const ProductDetail = () => {
               onClick={() => {
                 handleAddCart(product._id);
               }}
-              className="w-full bg-[#ff2d37] text-white font-bold py-1 rounded-xl"
+              className="mb-5 w-full bg-[#ff2d37] text-white font-bold py-1 rounded-xl"
             >
               Add to Cart
             </button>
+            <Link to="/cart"
+              
+              className="inline-block text-center w-full bg-[#ff2d37] text-white font-bold py-1 rounded-xl"
+            >
+              Go to Cart
+            </Link>
           </div>
+          
         </div>
       </div>
       <div className="py-[8%]">
-        <div className="flex justify-between bg-slate-200 p-3">
+        <div className="flex justify-between gap-6 bg-slate-200 p-3 overflow-hidden">
           <Link className="text-[#ff2d37] font-bold">Description</Link>
           <Link className="hover:text-[#ff2d37] font-bold">Reviews</Link>
           <Link className="hover:text-[#ff2d37] font-bold">Specification</Link>
@@ -102,7 +112,7 @@ const ProductDetail = () => {
           ></SectionTitle>
         </div>
         <div>
-          <div className="grid grid-cols-3 gap-5 mb-20">
+          <div className="grid lg:grid-cols-3 gap-5 mb-20">
             {productData.map((product) => (
               <div key={product._id}>
                 <Link to={`/products/${product._id}`}>
