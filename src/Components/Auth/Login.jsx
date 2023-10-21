@@ -29,7 +29,7 @@ const Login = ({ setPageToggle }) => {
         });
         setLoginError(null)
         setTimeout(() => {
-          navigator("/");
+          navigator(location.state ? location.state : "/");
         }, "2000");
       })
       .catch((error) => {
@@ -86,7 +86,7 @@ const Login = ({ setPageToggle }) => {
               <span>Password</span>
               <input
                 className="border-2 p-2 rounded-xl border-red-200"
-                type="text"
+                type="password"
                 placeholder="Type Your Password..."
                 name="password"
                 id=""

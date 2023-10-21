@@ -79,7 +79,7 @@ const Register = ({ setPageToggle }) => {
   const loginWithGoogle = () => {
     googleLogin()
       .then(() => {
-        navigator("/");
+        navigator(location.state ? location.state : "/");
         setTimeout(() => {
           toast.success("Login Successful, Redirecting", {
             position: "top-center",
@@ -147,7 +147,7 @@ const Register = ({ setPageToggle }) => {
             <span>Password</span>
             <input
               className="border-2 p-2 rounded-xl border-red-200"
-              type="text"
+              type="password"
               placeholder="Type Your Password..."
               name="password"
               id=""

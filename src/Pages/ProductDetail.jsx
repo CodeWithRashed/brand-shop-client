@@ -3,14 +3,17 @@ import SectionTitle from "../Components/SectionTitle/SectionTitle";
 import Rating from "react-rating";
 import {AiFillStar, AiOutlineStar} from "react-icons/ai";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { fetchProductData } from "../Hooks/fetchData";
 import { toast } from "react-toastify";
+import { GlobalDataContext } from "../ContextApi/DataContext";
 
 const ProductDetail = () => {
+  const {activeUser} = useContext(GlobalDataContext)
+  const userEmail = activeUser.email
   const product = useLoaderData();
   const [productData, setProductData] = useState([]);
-  // const [rating, setRatting] = useState([]);
+
   useEffect(() => {
     fetchProductData()
       .then((data) => {
@@ -31,7 +34,7 @@ const ProductDetail = () => {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({ id }),
+      body: JSON.stringify({ id, userEmail}),
     }).then((data) => {
       toast.success("Added to Cart", {
         position: "top-center",

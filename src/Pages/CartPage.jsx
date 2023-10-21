@@ -1,23 +1,32 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { fetchProductData } from "../Hooks/fetchData";
 import { useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AiFillDelete } from "react-icons/ai";
+import { GlobalDataContext } from "../ContextApi/DataContext";
 
 const CartPage = () => {
   const [allData, setAllData] = useState(null);
-  const cartItems = useLoaderData();
+  const cartItemsRaw = useLoaderData();
+  const {activeUser} = useContext(GlobalDataContext)
+  const userEmail = activeUser.email
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchProductData();
-      const filteredData = data.filter((singleData) =>
-        cartItems?.some((item) => item.id === singleData._id)
-      );
-      setAllData(filteredData);
+      try {
+        const cartItems = cartItemsRaw.filter(singleItem => singleItem.userEmail.includes(userEmail))
+        const data = await fetchProductData();
+        const filteredData = data.filter((singleData) =>
+          cartItems?.some((item) => item.id === singleData._id)
+        );
+        console.log(filteredData)
+        setAllData(filteredData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     };
     fetchData();
-  }, [cartItems]);
+  }, [cartItemsRaw, userEmail]);
 
   const handleDelete = async (id) => {
     await fetch(`https://brand-shop-back-end.vercel.app/api/delete/${id}`, {
@@ -44,7 +53,7 @@ const CartPage = () => {
 
   return (
     <div>
-      {cartItems.length > 0 ? (
+      {allData?.length > 0 ? (
         <div className="cart-container grid lg:grid-cols-4 gap-8">
           <div className="cart-content lg:col-span-3">
             <div className="grid  border-b mb-3">
