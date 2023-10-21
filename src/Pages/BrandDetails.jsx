@@ -8,6 +8,7 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 const BrandDetails = () => {
   const brand = useParams();
   const [productData, setProductData] = useState([]);
+ 
 
   useEffect(() => {
     fetchProductData()
@@ -25,7 +26,7 @@ const BrandDetails = () => {
     <div>
       {productData.length > 1 ? (
         <div>
-          <BrandBanner></BrandBanner>
+          <BrandBanner brand={brand.brand}></BrandBanner>
           <div className="grid lg:grid-cols-3 gap-5 my-[8%]">
             {productData?.map((product) => (
               <div key={product._id}>
