@@ -10,12 +10,12 @@ const Navbar = () => {
 
   const mobileNav = (
     <div>
-      <ul className="flex flex-col gap-4 menu dropdown-content mt-3 z-[100] p-2 shadow bg-base-100 rounded-box w-52">
+      <ul className="text-lg font-bold flex flex-col gap-4 menu dropdown-content mt-3 z-[100] p-2 shadow bg-base-100 rounded-box w-52">
         <li>
           <NavLink
             to="/"
             className={({ isActive }) =>
-              isActive ? "border-b-2 border-red-200" : ""
+              isActive ? "border-b-4 border-[#ff2d37]" : ""
             }
           >
             Home
@@ -26,7 +26,7 @@ const Navbar = () => {
           <NavLink
             to="/products"
             className={({ isActive }) =>
-              isActive ? "border-b-2 border-red-200" : ""
+              isActive ? "border-b-4 border-[#ff2d37]" : ""
             }
           >
             Product
@@ -38,7 +38,7 @@ const Navbar = () => {
             <NavLink
               to="/cart"
               className={({ isActive }) =>
-                isActive ? "border-b-2 border-red-200" : ""
+                isActive ? "border-b-4 border-[#ff2d37]" : ""
               }
             >
               Cart
@@ -52,7 +52,7 @@ const Navbar = () => {
             <NavLink
               to="/login"
               className={({ isActive }) =>
-                isActive ? "border-b-2 border-red-200" : ""
+                isActive ? "border-b-4 border-[#ff2d37]" : ""
               }
             >
               Login
@@ -65,7 +65,7 @@ const Navbar = () => {
             <NavLink
               to="/add"
               className={({ isActive }) =>
-                isActive ? "border-b-2 border-red-200" : ""
+                isActive ? "border-b-4 border-[#ff2d37]" : ""
               }
             >
               Add Product
@@ -76,13 +76,13 @@ const Navbar = () => {
     </div>
   );
   const desktopNav = (
-    <div className="hidden lg:block menu menu-horizontal bg-base-100">
-      <ul className="menu menu-horizontal flex gap-10 mr-5">
+    <div className="hidden text-lg lg:block menu menu-horizontal bg-base-100">
+      <ul className="text-lg font-bold menu menu-horizontal flex gap-10 mr-5">
         <li>
           <NavLink
             to="/"
             className={({ isActive }) =>
-              isActive ? "border-b-2 border-red-200" : ""
+              isActive ? "border-b-4 border-[#ff2d37]" : ""
             }
           >
             Home
@@ -93,7 +93,7 @@ const Navbar = () => {
           <NavLink
             to="/products"
             className={({ isActive }) =>
-              isActive ? "border-b-2 border-red-200" : ""
+              isActive ? "border-b-4 border-[#ff2d37]" : ""
             }
           >
             Product
@@ -105,7 +105,7 @@ const Navbar = () => {
             <NavLink
               to="/cart"
               className={({ isActive }) =>
-                isActive ? "border-b-2 border-red-200" : ""
+                isActive ? "border-b-4 border-[#ff2d37]" : ""
               }
             >
               Cart
@@ -119,7 +119,7 @@ const Navbar = () => {
             <NavLink
               to="/login"
               className={({ isActive }) =>
-                isActive ? "border-b-2 border-red-200" : ""
+                isActive ? "border-b-4 border-[#ff2d37]" : ""
               }
             >
               Login
@@ -132,7 +132,7 @@ const Navbar = () => {
             <NavLink
               to="/add"
               className={({ isActive }) =>
-                isActive ? "border-b-2 border-red-200" : ""
+                isActive ? "border-b-4 border-[#ff2d37]" : ""
               }
             >
               Add Product
@@ -144,7 +144,7 @@ const Navbar = () => {
   );
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 ">
         <div className="flex-1">
           <Link>
             {}
