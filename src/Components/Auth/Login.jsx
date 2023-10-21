@@ -2,9 +2,10 @@ import PropTypes from "prop-types";
 import { GlobalDataContext } from "../../ContextApi/DataContext";
 import { useContext, useState } from "react";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = ({ setPageToggle }) => {
+  const location = useLocation();
   const { googleLogin, loginWithEmail } = useContext(GlobalDataContext);
   const [loginError, setLoginError] = useState(null);
   const navigator = useNavigate();
@@ -53,7 +54,7 @@ const Login = ({ setPageToggle }) => {
           theme: "light",
         });
         setTimeout(() => {
-          navigator("/");
+          navigator(location.state ? location.state : "/");
         }, "2000");
       })
       .then();

@@ -52,13 +52,13 @@ const AddProduct = () => {
   };
   return (
     <div className="py-[5%] text-2xl">
-      <div className="w-[80%] mx-auto shadow-lg rounded-t-xl border-x-2 border-t-2 border-red-200">
+      <div className="lg:w-[80%] mx-auto shadow-lg rounded-t-xl border-x-2 border-t-2 border-red-200">
         <h1 className="text-3xl py-3 text-center">Add Product</h1>
       </div>
-      <div className="w-[80%] mx-auto shadow-xl rounded-b-xl py-5 px-8 ">
-        <form onSubmit={handleSubmit} className="flex flex-wrap gap-[4%]">
+      <div className="lg:w-[80%] mx-auto shadow-xl rounded-b-xl py-5 px-8 ">
+        <form onSubmit={handleSubmit} className="flex flex-wrap gap-[4%] space-y-3">
           {/* Product Name */}
-          <div className="flex flex-col w-[48%]">
+          <div className="flex flex-col w-full lg:w-[48%]">
             <span>Product Name</span>
             <input
               required
@@ -68,7 +68,7 @@ const AddProduct = () => {
             />
           </div>
           {/* Product Image */}
-          <div className="flex flex-col w-[48%]">
+          <div className="flex flex-col w-full lg:w-[48%]">
             <span>Product Image</span>
             <input
               required
@@ -78,7 +78,7 @@ const AddProduct = () => {
             />
           </div>
           {/* Product Brand Name */}
-          <div className="flex flex-col  w-[48%]">
+          <div className="flex flex-col  w-full lg:w-[48%]">
             <span>Brand Name</span>
             <select
               name="brandName"
@@ -96,7 +96,7 @@ const AddProduct = () => {
           </div>
 
           {/* Product  Type */}
-          <div className="flex flex-col w-[48%]">
+          <div className="flex flex-col w-full lg:w-[48%]">
             <span>Product Type</span>
             <select
               required
@@ -114,7 +114,7 @@ const AddProduct = () => {
             </select>
           </div>
           {/* Product Price */}
-          <div className="flex flex-col w-[48%]">
+          <div className="flex flex-col w-full lg:w-[48%]">
             <span>Product Price</span>
             <input
               required
@@ -125,7 +125,7 @@ const AddProduct = () => {
           </div>
 
           {/* Product Ratting */}
-          <div className="flex flex-col w-[48%]">
+          <div className="flex flex-col w-full lg:w-[48%]">
             <span>Product Rating</span>
 
             <select
@@ -146,7 +146,7 @@ const AddProduct = () => {
             <span>Product Description</span>
             <textarea
               required
-              className="w-full h-[100px] border-2 border-red-200"
+              className="w-full h-[100px] border-2 border-red-200 rounded-xl"
               type="text"
               name="productDescription"
             />
@@ -156,7 +156,7 @@ const AddProduct = () => {
           <div className="flex justify-center items-center w-full m-10">
             <button
               type="submit"
-              className="  text-center border-2 border-red-200 p-2"
+              className="  text-center border-2 border-red-200 p-2 rounded-xl"
             >
               Add Product
             </button>

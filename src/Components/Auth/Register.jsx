@@ -2,9 +2,11 @@ import PropTypes from "prop-types";
 import { useContext, useState } from "react";
 import { GlobalDataContext } from "../../ContextApi/DataContext";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+
 
 const Register = ({ setPageToggle }) => {
+  const location = useLocation();
   const { createEmailUser, googleLogin, userInfoUpdate, setUserPhoto } =
     useContext(GlobalDataContext);
   const passwordRegex =
@@ -65,7 +67,7 @@ const Register = ({ setPageToggle }) => {
           theme: "light",
         });
         setTimeout(() => {
-          navigator("/");
+          navigator(location.state ? location.state : "/");
         }, 2000);
       }
     } catch (error) {

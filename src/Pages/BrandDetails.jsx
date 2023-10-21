@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { fetchProductData } from "../Hooks/fetchData";
 import BrandBanner from "../Components/BrandBanner.jsx/BrandBanner";
+import Rating from "react-rating";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 const BrandDetails = () => {
   const brand = useParams();
@@ -35,9 +37,9 @@ const BrandDetails = () => {
                       {product?.brandName}
                     </h1>
                   </div>
-                  <div className="img ">
+                  <div className="img h-[200px]">
                     <img
-                      className="w-[400px] h-[200px]"
+                      className="h-[200px] w-full object-cover"
                       src={`${product?.productImage}`}
                       alt=""
                     />
@@ -50,10 +52,20 @@ const BrandDetails = () => {
                       <span>Price: </span>
                       {product?.productPrice}$
                     </h1>
-                    <h1 className="text-2xl uppercase">
+                    <div className="text-2xl uppercase flex items-center gap-1">
                       <span>Ratting: </span>
-                      {product?.productRatting}
-                    </h1>
+                      <span><Rating className="flex items-center"
+                        emptySymbol={
+                          <AiOutlineStar className="text-[#ff2d37] flex items-center text-2xl"></AiOutlineStar>
+                        }
+                        fullSymbol={
+                          <AiFillStar className="text-[#ff2d37] text-2xl"></AiFillStar>
+                        }
+                        readonly={true}
+                        initialRating={4}
+                      /></span>
+                      
+                    </div>
                     <div className="cta text-2xl flex justify-between items-center gap-[4%]  my-5">
                       <Link
                         to={`/products/${product._id}`}

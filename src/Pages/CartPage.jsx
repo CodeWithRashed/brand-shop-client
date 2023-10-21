@@ -5,8 +5,9 @@ import { toast } from "react-toastify";
 import { AiFillDelete } from "react-icons/ai";
 
 const CartPage = () => {
-  const [addData, setAllData] = useState(null);
+  const [allData, setAllData] = useState(null);
   const cartItems = useLoaderData();
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,8 +24,10 @@ const CartPage = () => {
     await fetch(`https://brand-shop-back-end.vercel.app/api/delete/${id}`, {
       method: "DELETE",
     })
+    
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
+       
         toast.success("Removed from Cart!!", {
           position: "top-center",
           autoClose: 2000,
@@ -35,7 +38,7 @@ const CartPage = () => {
           progress: undefined,
           theme: "light",
         });
-        console.log(data);
+        setAllData((oldAllData) => oldAllData.filter((item) => item._id !== id))  
       });
   };
 
@@ -64,10 +67,10 @@ const CartPage = () => {
                 </th>
               </tr>
             </thead>
-            <tbody>
+            <tbody >
             
-              {addData?.map((cartItem) => (
-                <tr key={cartItem._id}>
+              {allData?.map((cartItem) => (
+                <tr className="mb-5" key={cartItem._id} >
                   <td className="my-2">
                     <img
                       className="h-10 w-10 rounded-xl"
@@ -82,7 +85,7 @@ const CartPage = () => {
                   <td>
                     <button
                       onClick={() => handleDelete(cartItem._id)}
-                      className="text-xl  p-2"
+                      className="text-xl  p-2 hover:text-[#ff2d37]"
                     >
                       <AiFillDelete></AiFillDelete>
                     </button>
