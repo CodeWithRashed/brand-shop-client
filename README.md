@@ -18,6 +18,7 @@ Server Link: [Vercel](https://brand-shop-back-end.vercel.app/)
 - Toast on successful event.
 - Delete from cart functionality (also delete it form database)
 - Dynamic Banner for each brand
+- Dynamic cart for individual user. 
 
 ## Note
 ### Backend Server is running on vercel free package, User may have some delay or error to fetch product from server. If you face any error please wait few minutes and try again later. Thanks!
