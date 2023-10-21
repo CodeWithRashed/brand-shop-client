@@ -62,11 +62,11 @@ const Login = ({ setPageToggle }) => {
 
   return (
     <div>
-      <div className="px-10 py-20">
-        <div className="w-1/2 shadow-lg border-x-2 border-t-2 border-red-200 rounded-t-xl h-1/2 mx-auto p-8">
+      <div className="lg:px-10 lg:py-20">
+        <div className="lg:w-1/2 shadow-lg border-x-2 border-t-2 border-red-200 rounded-t-xl h-1/2 mx-auto p-8">
           Login
         </div>
-        <div className="w-1/2 shadow-2xl h-1/2 mx-auto p-8 rounded-b-xl">
+        <div className="lg:w-1/2 shadow-2xl h-1/2 mx-auto p-8 rounded-b-xl">
           <form onSubmit={handleLoginSubmit} className="flex flex-col gap-5">
             {/* Email Field */}
             <div className="flex flex-col gap-1">
@@ -118,7 +118,12 @@ const Login = ({ setPageToggle }) => {
               <button
                 className="border-2 border-red-200 p-2 ml-2 rounded-xl mt-3"
                 onClick={() => {
-                  loginWithGoogle();
+                  loginWithGoogle()
+                  .catch((error) => {
+                    if (error) {
+                      setLoginError("Invalid login credentials");
+                    }
+                  })
                 }}
               >
                 Google Login

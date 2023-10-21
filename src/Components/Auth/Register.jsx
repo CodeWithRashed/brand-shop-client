@@ -97,11 +97,11 @@ const Register = ({ setPageToggle }) => {
   };
 
   return (
-    <div className="px-10 py-20">
-      <div className="w-1/2 shadow-lg border-x-2 border-t-2 border-red-200 rounded-t-xl h-1/2 mx-auto p-8">
+    <div className="lg:px-10 lg:py-20">
+      <div className="lg:w-1/2 shadow-lg border-x-2 border-t-2 border-red-200 rounded-t-xl h-1/2 mx-auto p-8">
         Create an Account
       </div>
-      <div className="w-1/2 shadow-2xl h-1/2 mx-auto p-8 rounded-b-xl">
+      <div className="lg:w-1/2 shadow-2xl h-1/2 mx-auto p-8 rounded-b-xl">
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           {/* Name Field */}
           <div className="flex flex-col gap-1">
