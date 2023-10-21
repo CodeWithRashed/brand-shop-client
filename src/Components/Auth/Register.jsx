@@ -70,8 +70,8 @@ const Register = ({ setPageToggle }) => {
           navigator(location.state ? location.state : "/");
         }, 2000);
       }
-    } catch (error) {
-      console.error(error);
+    } finally {
+     ""
     }
   };
 
@@ -112,7 +112,7 @@ const Register = ({ setPageToggle }) => {
               type="text"
               placeholder="Type Your Name..."
               name="name"
-              id=""
+             
             />
           </div>
 
@@ -125,7 +125,7 @@ const Register = ({ setPageToggle }) => {
               type="text"
               placeholder="Enter Image URL..."
               name="imageUrl"
-              id=""
+             
             />
           </div>
 
@@ -138,7 +138,7 @@ const Register = ({ setPageToggle }) => {
               type="email"
               placeholder="Enter Your Email..."
               name="email"
-              id=""
+             
             />
           </div>
 
@@ -150,7 +150,7 @@ const Register = ({ setPageToggle }) => {
               type="password"
               placeholder="Type Your Password..."
               name="password"
-              id=""
+            
               required
             />
           </div>

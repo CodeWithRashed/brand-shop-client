@@ -23,9 +23,7 @@ const ProductDetail = () => {
           )
         );
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      
   }, [product]);
 
   const handleAddCart = async (id) => {
@@ -35,7 +33,7 @@ const ProductDetail = () => {
         "content-type": "application/json",
       },
       body: JSON.stringify({ id, userEmail}),
-    }).then((data) => {
+    }).then(() => {
       toast.success("Added to Cart", {
         position: "top-center",
         autoClose: 2000,
@@ -46,7 +44,7 @@ const ProductDetail = () => {
         progress: undefined,
         theme: "light",
       });
-      console.log(data);
+     
     });
   };
 

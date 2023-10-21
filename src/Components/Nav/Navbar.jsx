@@ -23,9 +23,9 @@ const Navbar = () => {
         setTheme("light");
         setIcon("light");
         localStorage.setItem("theme", "light");
-        console.log("inside")
+
       }
-      console.log("theme",theme, "icon",icon, "clicked")
+
     }
 
     if (!event.target.checked) {
@@ -36,9 +36,9 @@ const Navbar = () => {
         setTheme("dark");
         setIcon("dark");
         localStorage.setItem("theme", "dark");
-        console.log("inside")
+
       }
-      console.log("clicked on false");
+
     }
   };
 

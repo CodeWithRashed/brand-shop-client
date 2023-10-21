@@ -21,19 +21,20 @@ const AddProduct = () => {
       productRatting,
       productDescription,
     };
-    console.log(productData);
 
     try {
-      const response = await fetch("https://brand-shop-back-end.vercel.app/api/addProduct", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(productData),
-      });
+      const response = await fetch(
+        "https://brand-shop-back-end.vercel.app/api/addProduct",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(productData),
+        }
+      );
       if (response.ok) {
-        const result = await response.json();
-        console.log(result);
+        await response.json();
         form.reset();
         toast.success("Product Added!", {
           position: "top-right",
@@ -46,8 +47,8 @@ const AddProduct = () => {
           theme: "light",
         });
       }
-    } catch (error) {
-      console.log(error);
+    } finally{
+      ""
     }
   };
   return (
@@ -56,7 +57,10 @@ const AddProduct = () => {
         <h1 className="text-3xl py-3 text-center">Add Product</h1>
       </div>
       <div className="lg:w-[80%] mx-auto shadow-xl rounded-b-xl py-5 px-8 ">
-        <form onSubmit={handleSubmit} className="flex flex-wrap gap-[4%] space-y-3">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-wrap gap-[4%] space-y-3"
+        >
           {/* Product Name */}
           <div className="flex flex-col w-full lg:w-[48%]">
             <span>Product Name</span>

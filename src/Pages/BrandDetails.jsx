@@ -16,10 +16,10 @@ const BrandDetails = () => {
         let filterData = data.filter((oneData) =>
           oneData.brandName.includes(brand.brand)
         );
-        console.log(filterData);
+      
         setProductData(filterData);
       })
-      .catch((error) => console.log(error));
+     
   }, [brand]);
 
   return (

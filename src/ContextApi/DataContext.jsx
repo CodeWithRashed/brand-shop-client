@@ -55,7 +55,7 @@ const DataContext = ({ children }) => {
 
   //Watch User
   onAuthStateChanged(auth, (user) => {
-    console.log(user);
+
     setActiveUser(user);
     setLoading(false);
   });

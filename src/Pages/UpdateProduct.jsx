@@ -23,7 +23,7 @@ const UpdateProduct = () => {
       productRatting,
       productDescription,
     };
-    console.log(productData);
+   
 
     try {
       const response = await fetch(`https://brand-shop-back-end.vercel.app/api/update/${product._id}`, {
@@ -34,9 +34,7 @@ const UpdateProduct = () => {
         body: JSON.stringify(productData),
       });
       if (response.ok) {
-        const result = await response.json();
-        form.reset();
-        console.log(result);
+         await response.json();
         form.reset();
         toast.success("Product Updated!", {
           position: "top-right",
@@ -49,8 +47,8 @@ const UpdateProduct = () => {
           theme: "light",
         });
       }
-    } catch (error) {
-      console.log(error);
+    } finally {
+      form.reset();
     }
   };
   return (

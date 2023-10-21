@@ -46,7 +46,6 @@ const BrandBanner = ({brand}) => {
     }
   };
   
-console.log(brandImage[`${brand}`]["images"])
   return (
     <div className="h-[80vh]">
       <Swiper

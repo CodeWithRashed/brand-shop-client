@@ -19,10 +19,10 @@ const CartPage = () => {
         const filteredData = data.filter((singleData) =>
           cartItems?.some((item) => item.id === singleData._id)
         );
-        console.log(filteredData)
+      
         setAllData(filteredData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+      } finally {
+        ""
       }
     };
     fetchData();

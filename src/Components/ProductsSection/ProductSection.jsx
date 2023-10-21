@@ -9,11 +9,9 @@ const ProductSection = () => {
       .then((data) => {
         setProductData(data.slice(-6));
       })
-      .catch((error) => {
-        console.log(error);
-      });
+    
   }, []);
-  console.log(productData);
+
 
   return (
     <div className="my-[8%]">

@@ -77,7 +77,7 @@ const Login = ({ setPageToggle }) => {
                 type="email"
                 placeholder="Enter Your Email..."
                 name="email"
-                id=""
+               
               />
             </div>
 
@@ -89,7 +89,7 @@ const Login = ({ setPageToggle }) => {
                 type="password"
                 placeholder="Type Your Password..."
                 name="password"
-                id=""
+               
                 required
               />
             </div>
