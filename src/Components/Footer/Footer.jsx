@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div>
-      <footer className="mt-20 footer footer-center pt-10 bg-base-200 text-base-content rounded">
+      <footer className="dark:bg-gray-700 dark:text-white mt-20 footer footer-center pt-10 bg-base-200 text-base-content rounded">
         <nav className="grid grid-flow-col gap-4">
           <Link to="/" className="hover:text-[#ff2d37]">
             Home
@@ -60,7 +60,7 @@ const Footer = () => {
             </a>
           </div>
         </nav>
-        <div className="footer-center p-4 bg-base-300 text-base-content w-full">
+        <div className="dark:bg-gray-800 dark:text-white footer-center p-4 bg-base-300 text-base-content w-full ">
           <aside>
             <p>Copyright © 2023 - All right reserved by Brand Shop</p>
           </aside>

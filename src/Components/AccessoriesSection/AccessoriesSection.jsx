@@ -65,7 +65,7 @@ const AccessoriesSection = () => {
                     alt=""
                   />
                 </div>
-                <div className="absolute bottom-0 bg-[#282828] w-full p-2 text-center backdrop-blur">
+                <div className="absolute dark:bg-[#ff2d37] bottom-0 bg-[#282828] w-full p-2 text-center backdrop-blur">
                   <h1 className="text-xl font-bold text-white">
                     {product?.product_name}
                   </h1>

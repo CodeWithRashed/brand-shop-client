@@ -4,9 +4,9 @@ import Footer from "../Components/Footer/Footer";
 
 const MainLayout = () => {
   return (
-    <div>
-      <div className="font-rubik mx-[5%]">
-        <Navbar></Navbar>
+    <div className="dark:bg-gray-900">
+      <Navbar></Navbar>
+      <div className="font-rubik px-[5%] mt-5 ">
         <Outlet></Outlet>
       </div>
 

@@ -8,7 +8,7 @@ const Items = ({image, title}) => {
           alt=""
         />
       </div>
-      <div><h2 className="text-lg font-bold text-center mt-4 uppercase">{title}</h2></div>
+      <div><h2 className="text-lg font-bold text-center mt-4 uppercase dark:text-white">{title}</h2></div>
     </div>
   );
 };
