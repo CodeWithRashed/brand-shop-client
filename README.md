@@ -11,6 +11,7 @@ Live Link: [Firebase](https://brand-shop-c38f6.web.app/)
 - Add Product to database functionality 
 - Toast on successful event.
 - Delete from cart functionality (also delete it form database)
+- Dynamic Banner for each brand
 
 ## Note
 ### Backend Server is running on vercel free package, User may have some delay or error to fetch product from server. If you face any error please wait few minutes and try again later. Thanks!

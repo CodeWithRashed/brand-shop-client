@@ -34,8 +34,8 @@ const Banner = () => {
           >
             <div className="flex justify-center items-center text-content relative z-10 space-y-5 bg-[#000000]/[.40] h-full w-full top-0">
              
-              <h1 className="drop-shadow-xl text-xl lg:text-7xl font-rubik text-[#fff] font-bold">
-              Experience the Thrill
+              <h1 className="drop-shadow-xl text-5xl lg:text-7xl font-rubik text-[#fff] font-bold text-center">
+              Experience <br /><span className="text-[#ff2d37]">The Thrill</span>
               </h1>
      
             </div>
@@ -56,8 +56,8 @@ const Banner = () => {
           >
             <div className="flex justify-center items-center text-content relative z-10 space-y-5 bg-[#000000]/[.40] h-full w-full top-0">
              
-             <h1 className="drop-shadow-xl text-xl lg:text-7xl font-rubik text-[#fff] font-bold">
-             Cars that Define You
+             <h1 className="drop-shadow-xl text-5xl lg:text-7xl font-rubik text-[#fff] font-bold text-center">
+             Cars that <br /><span className="text-[#ff2d37]"> Define You</span>
              </h1>
     
            </div>
@@ -79,8 +79,8 @@ const Banner = () => {
             {/* Your Event, Our Expertise. */}
             <div className="flex justify-center items-center text-content relative z-10 space-y-5 bg-[#000000]/[.40] h-full w-full top-0">
              
-             <h1 className="drop-shadow-xl text-xl lg:text-7xl font-rubik text-[#fff] font-bold">
-             Where Your Dream Car Awaits
+             <h1 className="drop-shadow-xl text-5xl lg:text-7xl font-rubik text-[#fff] font-bold text-center">
+             Your Dream <br /> <span className="text-[#ff2d37]">Car Awaits</span>
              </h1>
     
            </div>
